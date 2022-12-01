@@ -3,7 +3,6 @@ function UI(){
     this.btn_next = document.querySelector(".next_btn"),
     this.btn_replay = document.querySelector(".btn_replay"),
     this.btn_quit = document.querySelector(".btn_quit"),
-    this.btn_doc = document.querySelector(".btn_doc"),
     this.quiz_box = document.querySelector(".quiz_box"),
     this.score_box = document.querySelector(".score_box"),
     this.option_list =document.querySelector(".option_list"),

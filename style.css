@@ -162,12 +162,17 @@ position: relative;
         margin-bottom: 10px;
     }
 
-    .quiz_box .btn_doc{
-        display: none;
+     .score_box .cert_input {
+       
+        border-radius: 8px;
+        margin: 20px;
+        padding: 10px;
+        justify-content: space-between;
     }
-    
-    .quiz_box .btn_doc.active{
-        opacity: 1;
-        pointer-events: auto;
-        transform: scale(1);
+
+    .score_box .cert_input .name_input {
+        border-radius: 8px;
+        margin: 20px;
+        padding: 10px;
+        justify-content: space-between;
     }

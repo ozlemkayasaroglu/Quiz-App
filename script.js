@@ -1,12 +1,13 @@
+console.log(sorular);
 const quiz = new Quiz(sorular);
-const ui =new UI(); 
+const ui = new UI();
 
 ui.btn_start.addEventListener("click", function () {
     ui.quiz_box.classList.add("active");
     startTimer(10);
     startTimerLine();
     ui.soruGoster(quiz.soruGetir());
-    ui.soruSayisiniGoster(quiz.soruIndex +1, quiz.sorular.length);
+    ui.soruSayisiniGoster(quiz.soruIndex + 1, quiz.sorular.length);
     ui.btn_next.classList.remove("show");
 });
 
@@ -25,13 +26,15 @@ ui.btn_next.addEventListener("click", function () {
         clearInterval(counterLine);
         ui.quiz_box.classList.remove("active");
         ui.score_box.classList.add("active");
-        ui.skoruGoster(quiz.sorular.length,quiz.dogruCevapSayisi );
+        ui.skoruGoster(quiz.sorular.length, quiz.dogruCevapSayisi);
+
     }
 
 });
 
 
-ui.btn_replay.addEventListener("click", function(){
+
+ui.btn_replay.addEventListener("click", function () {
     quiz.soruIndex = 0;
     quiz.dogruCevapSayisi = 0;
     ui.btn_start.click();
@@ -46,7 +49,7 @@ function optionSelected(option) {
     let soru = quiz.soruGetir();
 
     if (soru.cevabiKontrolEt(cevap)) {
-        quiz.dogruCevapSayisi+= 1;
+        quiz.dogruCevapSayisi += 1;
         option.classList.add("correct");
         option.insertAdjacentHTML("beforeend", ui.correctIcon);
     } else {
@@ -63,28 +66,28 @@ function optionSelected(option) {
 
 
 let counter;
-function startTimer(time){
-   counter = setInterval(timer, 1000);
+function startTimer(time) {
+    counter = setInterval(timer, 1000);
 
-    function timer(){
+    function timer() {
         ui.time_second.textContent = time;
         time--;
 
-        if (time <0){
+        if (time < 0) {
             clearInterval(counter);
 
-            ui.time_text.textContent="Süre Bitti.";
+            ui.time_text.textContent = "Süre Bitti.";
 
-           let cevap = quiz.soruGetir().dogruCevap;
+            let cevap = quiz.soruGetir().dogruCevap;
 
-           for ( let option of ui.option_list.children){
-            if(option.querySelector("span b").textContent === cevap){
-                option.classList.add("correct");
-                option.insertAdjacentHTML("beforeend", ui.correctIcon);
+            for (let option of ui.option_list.children) {
+                if (option.querySelector("span b").textContent === cevap) {
+                    option.classList.add("correct");
+                    option.insertAdjacentHTML("beforeend", ui.correctIcon);
+                }
+                option.classList.add("disabled");
             }
-            option.classList.add("disabled");
-           }
-           ui.btn_next.classList.add("show");
+            ui.btn_next.classList.add("show");
         }
     }
 };
@@ -92,15 +95,15 @@ function startTimer(time){
 
 let counterLine;
 
-function startTimerLine (){
-    let line_width=0;
+function startTimerLine() {
+    let line_width = 0;
 
     counterLine = setInterval(timer, 100);
-    function timer(){
+    function timer() {
         line_width += 5;
         ui.time_line.style.width = line_width + "px";
-        
-        if (line_width > 549){
+
+        if (line_width > 549) {
             clearInterval(counterLine);
         }
     }
