@@ -6,7 +6,16 @@
     left: 50%;
     transform: translate(-50, -50);
 }
-
+.text_desc{
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    width: 400px;
+    transform: translate(-50, -50);
+    border: #f0A500 solid 2px;
+    border-radius: 6px;
+    padding:7px;
+}
 
 .quiz_box.active{
     opacity:1;
@@ -136,6 +145,7 @@ position: relative;
         opacity:1;
         pointer-events: auto;
         transform: translate(-50%, -50%) scale(1);
+        height: 500px;
     }
 
 
@@ -176,3 +186,7 @@ position: relative;
         padding: 10px;
         justify-content: space-between;
     }
+
+   .score_box.active .btn_cert.disabled{
+    display:none;
+   }

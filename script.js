@@ -21,15 +21,16 @@ ui.btn_next.addEventListener("click", function () {
         ui.soruGoster(quiz.soruGetir());
         ui.soruSayisiniGoster(quiz.soruIndex + 1, quiz.sorular.length);
         ui.btn_next.classList.remove("show");
-    } else {
+    } else { // sınav bitti 
         clearInterval(counter);
         clearInterval(counterLine);
         ui.quiz_box.classList.remove("active");
         ui.score_box.classList.add("active");
         ui.skoruGoster(quiz.sorular.length, quiz.dogruCevapSayisi);
 
+        certificated();
     }
-
+       
 });
 
 
@@ -63,11 +64,32 @@ function optionSelected(option) {
 
     ui.btn_next.classList.add("show");
 }
+// EMREYE SOR
+function certificated (){
+    if (quiz.sorular.length !== quiz.dogruCevapSayisi){
+        ui.btn_cert.classList.add("disabled");
+    } else { 
+        ui.btn_cert.addEventListener("click", function(){
+            window.open(
+                'http://ozlem.kayasaroglu.com/wp-content/uploads/2022/12/ozlem-acar-quiz-app.jpg',
+                '_blank' 
+              )
+        })
+       
+
+    }
+}
+
+
+
+
+
+
 
 
 let counter;
 function startTimer(time) {
-    counter = setInterval(timer, 1000);
+    counter = setInterval(timer, 1400);
 
     function timer() {
         ui.time_second.textContent = time;
@@ -98,9 +120,9 @@ let counterLine;
 function startTimerLine() {
     let line_width = 0;
 
-    counterLine = setInterval(timer, 100);
+    counterLine = setInterval(timer, 200);
     function timer() {
-        line_width += 5;
+        line_width += 10;
         ui.time_line.style.width = line_width + "px";
 
         if (line_width > 549) {
