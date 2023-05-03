@@ -35,12 +35,16 @@ ui.btn_next.addEventListener("click", function () {
 
 
 
+
+
 ui.btn_replay.addEventListener("click", function () {
     quiz.soruIndex = 0;
     quiz.dogruCevapSayisi = 0;
     ui.btn_start.click();
     ui.score_box.classList.remove("active");
 });
+
+
 
 
 function optionSelected(option) {
@@ -64,7 +68,7 @@ function optionSelected(option) {
 
     ui.btn_next.classList.add("show");
 }
-// EMREYE SOR
+
 function certificated (){
     if (quiz.sorular.length !== quiz.dogruCevapSayisi){
         ui.btn_cert.classList.add("disabled");
